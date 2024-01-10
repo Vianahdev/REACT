@@ -1,17 +1,15 @@
-/* import { useNavigate } from 'react-router-dom' */
-
-import { useState } from "react"
+import { useEffect, useState } from "react"
 
 
 export const Login = () =>{
-   /*  const navigate = useNavigate();
-
-    const handleClick = () => {
-        navigate('/pagina-inicial')
-    } */
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+
+    useEffect(() => {
+        console.log(email)
+        console.log(password)
+    }, [email,password])
 
     const handleLogin = () => {
         console.log(email)
@@ -28,7 +26,7 @@ export const Login = () =>{
 
                 <label htmlFor="">
                     <span>Senha</span>
-                    <input type="password" value={password} onChange={s => setPassword(s.target.value)}/>
+                    <input type="password" value={password} onChange={e => setPassword(e.target.value)}/>
                 </label>
 
                 <button type="button" onClick={handleLogin}>Entrar</button>
