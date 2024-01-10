@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 
 
 export const Login = () =>{
@@ -7,14 +7,13 @@ export const Login = () =>{
     const [password, setPassword] = useState('')
 
     const emailLength = useMemo(() => {
-        console.log("Executou")
         return email.length * 1000000000
     }, [email.length])
 
-    const handleLogin = () => {
+    const handleLogin = useCallback(() => {
         console.log(email)
         console.log(password)
-    }
+    },[email, password])
 
     return (
         <div>
