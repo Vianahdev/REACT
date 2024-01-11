@@ -5,7 +5,7 @@ export const AppRoutes = () =>{
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/pagina-inicial" element={<Dashboard />}/>
+                <Route path="/dashboard" element={<Dashboard />}/>
                 <Route path="/login" element={<Login />} />
                 <Route path="/repositorios" element={<ListaDeRepositorios/>} />
 

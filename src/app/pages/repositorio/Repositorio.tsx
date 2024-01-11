@@ -19,7 +19,7 @@ export const ListaDeRepositorios = () =>{
         <>
           <ul>
             {repositorio.map(repositorio => (
-              <a href={repositorio['html_url']} target="_blank">
+              <a href={repositorio['html_url']}>
                 <li key={repositorio['id']}>
                     {repositorio['name']}
                 </li>

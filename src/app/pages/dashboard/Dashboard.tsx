@@ -1,12 +1,18 @@
+import { useRef } from 'react'
 import { Link } from 'react-router-dom'
 
 export const Dashboard = () =>{
+    const countClick = useRef({counter : 0})
+
     return (
         <div>
-            <h1>Pagina Inicial</h1>
-            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam, 
-                cupiditate quasi. Atque, repellendus quod sunt, officiis necessitatibus 
-               aut id vero repellat aliquam ad quae ut, cum amet obcaecati optio suscipit?</p>
+            <h1>Dashboard</h1>
+
+            <p>Contador: {countClick.current.counter}</p>
+
+            <button onClick={() => countClick.current.counter++}>Somar</button>
+
+            <br />
 
             <Link to="/login">Login</Link>
         </div>
