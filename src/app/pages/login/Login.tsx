@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { InputLogin } from "./components/InputLogin"
 
 
 export const Login = () =>{
     const inputPassworRef = useRef<HTMLInputElement>(null)
-
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
@@ -20,9 +20,24 @@ export const Login = () =>{
     return (
         <div>
             <form action="">
-                <p>Qtdn caractere e-mail: {emailLength}</p>
+                {/* <p>Qtdn caractere e-mail: {emailLength}</p> */}
+                
+                <InputLogin 
+                    label="Email"
+                    value={email} 
+                    onChange={newValue => setEmail(newValue)}
+                    onPressEnter={() => inputPassworRef.current?.focus()}
+                />
 
-                <label htmlFor="">
+                <InputLogin 
+                    label="Senha"
+                    type="password"
+                    value={password}
+                    onChange={newValue => setPassword(newValue)}
+                />
+
+
+               {/*  <label>
                     <span>Email</span>
                     <input 
                     type="text" placeholder="exemplo@gmail.com" value={email} 
@@ -30,13 +45,13 @@ export const Login = () =>{
                     onKeyDown={e => e.key === 'Enter' ? inputPassworRef.current?.focus() : undefined} />
                 </label>
 
-                <label htmlFor="">
+                <label>
                     <span>Senha</span>
                     <input ref={inputPassworRef}
                      type="password" value={password} 
                      onChange={e => setPassword(e.target.value)}/>
                 </label>
-
+ */}
                 <button type="button" onClick={handleLogin}>Entrar</button>
             </form>
         </div>
