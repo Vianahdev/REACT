@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react"
+import { useCallback,  useMemo, useRef, useState } from "react"
 import { InputLogin } from "./components/InputLogin"
+import { ButtonLogin } from "./components/ButtonLogin"
 
 
 export const Login = () =>{
@@ -7,10 +8,6 @@ export const Login = () =>{
 
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
-
-    const emailLength = useMemo(() => {
-        return email.length * 1000000000
-    }, [email.length])
 
     const handleLogin = useCallback(() => {
         console.log(email)
@@ -20,7 +17,6 @@ export const Login = () =>{
     return (
         <div>
             <form action="">
-                {/* <p>Qtdn caractere e-mail: {emailLength}</p> */}
                 
                 <InputLogin 
                     label="Email"
@@ -36,23 +32,9 @@ export const Login = () =>{
                     onChange={newValue => setPassword(newValue)}
                 />
 
+                <ButtonLogin type="button" onClick={handleLogin}>Entrar</ButtonLogin>
+                <ButtonLogin type="button" onClick={handleLogin}>Cadastrar</ButtonLogin>
 
-               {/*  <label>
-                    <span>Email</span>
-                    <input 
-                    type="text" placeholder="exemplo@gmail.com" value={email} 
-                    onChange={e => setEmail(e.target.value)}
-                    onKeyDown={e => e.key === 'Enter' ? inputPassworRef.current?.focus() : undefined} />
-                </label>
-
-                <label>
-                    <span>Senha</span>
-                    <input ref={inputPassworRef}
-                     type="password" value={password} 
-                     onChange={e => setPassword(e.target.value)}/>
-                </label>
- */}
-                <button type="button" onClick={handleLogin}>Entrar</button>
             </form>
         </div>
     );

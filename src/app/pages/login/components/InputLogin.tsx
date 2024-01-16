@@ -1,10 +1,10 @@
 interface InputLoginProps{
-    label: string;
-    value: string;
-    type?: string;
+    label: string
+    value: string
+    type?: string
 
-    onChange: (newValue: string) => void;
-    onPressEnter?: () => void; 
+    onChange: (newValue: string) => void
+    onPressEnter?: () => void
 }
 
 export const InputLogin: React.FC <InputLoginProps> = (props) =>{
